@@ -1,0 +1,31 @@
+/* Variable Document */
+$medium : 600px;
+$sideBarColor: #171d1f;
+$sideBarColorReverse: #001217;
+$fontStyle: 'Source Sans Pro', sans-serif;
+/* Mixin Document */
+
+@mixin flex() {
+	display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin justify-content($style) {
+  -webkit-justify-content: $style;
+  -ms-flex-pack: $style;
+  justify-content: $style;
+}
+
+@mixin alignItems($location) {
+  -webkit-align-items: $location;
+  -ms-flex-align: $location;
+  align-items: $location;
+}
+
+@mixin flexDirection($direction) {
+  -webkit-flex-direction: $direction;
+  -ms-flex-direction: $direction;
+  flex-direction: $direction;
+}
