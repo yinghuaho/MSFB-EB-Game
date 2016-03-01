@@ -3,20 +3,21 @@
 <head>
 <meta charset="utf-8">
 <title>Matt Chat</title>
-<base href="/" />
+<base href="/msfb/" />
 
-<link rel="stylesheet" href="../css/css/style.css" type="text/css">
+<link rel="stylesheet" href="css/css/style.css" type="text/css">
+<!-- <link rel="stylesheet" href="external_files/font-awesome.min.css"> -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-<script src='js/angular.min.js'></script>
-<script src='js/angular-route.js'></script>
+<script src='external_files/angular.min.js'></script>
+<script src='external_files/angular-route.js'></script>
 </head>
    <div id="wrapper">
       <div id="header">
         <div tile="EB_Game Logo"><img src="http://lorempixel.com/200/50/"/></div>
         <div>
             <div><input type="search" placeholder="  Search"></div>
-            <div id="user"><i class="fa fa-chevron-down"></i><img src="http://lorempixel.com/50/50/"/></div>
+            <div id="user"><img src="http://lorempixel.com/50/50/"/></div>
         </div>
       </div>
 
@@ -35,7 +36,7 @@
          </div>
 
 
-         <div ng-view></div>
+         <div id="display" ng-view></div>
 
       </div>
    </div>

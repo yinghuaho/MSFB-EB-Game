@@ -56,10 +56,18 @@ table {
   border-spacing: 0;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
 /*================================Gobal Css======================================*/
 /*===============================================================================*/
 html, body {
   height: 100vh;
+  width: 100%;
   font-family: "Source Sans Pro", sans-serif;
 }
 
@@ -86,7 +94,7 @@ html, body {
   padding-right: 5px;
 }
 
-/*=============================== sideBar Seciont ===============================*/
+/*=============================== header Seciont ===============================*/
 /*===============================================================================*/
 #header {
   @width :100%;
@@ -123,7 +131,6 @@ html, body {
 #user {
   cursor: pointer;
   padding-left: 5px;
-  border-left: 1px solid grey;
 }
 
 /*=============================== sideBar Seciont ===============================*/
@@ -155,7 +162,7 @@ html, body {
 #sideBarButton {
   display: inline-table;
   position: absolute;
-  right: -34px;
+  right: -36px;
   color: white;
   background-color: #001217;
   padding: 10px;
@@ -192,10 +199,6 @@ html, body {
 }
 
 #display {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   width: 100%;
   height: 100%;
-  background: black;
 }

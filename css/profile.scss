@@ -1,0 +1,26 @@
+/*================================Profile Css======================================*/
+/*=================================================================================*/
+#profile {
+  display:flex;
+  flex-direction: column;
+  width:80%;
+  margin:0 auto;
+}
+
+#setting{
+  width:80%;
+  margin:0 auto;
+}
+
+#picture{
+  margin:10vw auto;
+}
+
+.settingElement{
+  display:flex;
+  justify-content: space-between;
+  margin:50px 0px 50px 0px;
+    &:first-child{
+      margin-top:0px;
+    }
+}
