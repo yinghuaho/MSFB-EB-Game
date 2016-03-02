@@ -1,34 +1,23 @@
 /*================================Profile Css======================================*/
 /*=================================================================================*/
 #profile {
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 80%;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 #setting {
   width: 80%;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 #picture {
-  margin: 10vw auto;
-}
+  margin: 10vw auto; }
 
 .settingElement {
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 50px 0px 50px 0px;
-}
-.settingElement:first-child {
-  margin-top: 0px;
-}
+  justify-content: space-between;
+  margin: 50px 0px 50px 0px; }
+  .settingElement:first-child {
+    margin-top: 0px; }
+
+/*# sourceMappingURL=profile.css.map */

@@ -4,9 +4,6 @@
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
       SIGN UP
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
-body {
-  background-color: #eee; }
-
 .btn-login-signup {
   display: block;
   margin: 5px auto;
@@ -16,7 +13,8 @@ body {
   border-radius: 10px;
   width: 100%;
   max-width: 320px;
-  padding: 15px; }
+  padding: 15px;
+  cursor: pointer; }
 
 .signup-errmsg, .login-errmsg {
   font-size: 1em;
@@ -48,21 +46,27 @@ body {
   border-radius: 10px;
   width: 100%;
   max-width: 350px;
-  padding: 15px; }
+  padding: 15px;
+  cursor: pointer; }
 
-.profile-info {
-  margin-top: 40px; }
-  .profile-info > div {
-    display: inline-block; }
-  .profile-info > span {
-    display: block; }
-  .profile-info > input {
-    margin-bottom: 20px; }
-  .profile-info > #update-info {
-    display: block;
-    margin: 20px 0; }
-  .profile-info > .new-pw-div {
-    display: block;
-    margin-top: 10px; }
+.newinfo-input {
+  background-color: #f2f2f2;
+  font-size: 0.8em;
+  border: 1px solid #000;
+  padding: 5px;
+  text-align: center; }
+
+#update-info {
+  background-color: #ddd;
+  display: block;
+  margin: 0 auto;
+  font-size: 1em;
+  border: 1px solid #000;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  padding: 15px;
+  margin-bottom: 50px;
+  cursor: pointer; }
 
 /*# sourceMappingURL=global.css.map */
