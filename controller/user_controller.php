@@ -5,6 +5,10 @@ if($_POST['method'] == "insert"){
     insert_user();
 }
 
+if($_POST['method'] == "login"){
+    login_user();
+}
+
 if($_POST['method'] == "view"){
    select_user();
 }

@@ -3,12 +3,13 @@
 <head>
 <meta charset="utf-8">
 <title>Matt Chat</title>
-<base href="/msfb/" />
+<base href="/MSFB-EB-Game/" />
 
 <link rel="stylesheet" href="css/css/style.css" type="text/css">
 <!-- <link rel="stylesheet" href="external_files/font-awesome.min.css"> -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script src='external_files/angular.min.js'></script>
 <script src='external_files/angular-route.js'></script>
 </head>
@@ -26,12 +27,13 @@
          <div id="sideBar" title="Menu">
            <div id="sideBarButton"><i class="fa fa-bars"></i></div>
            <div id="sideBarContent">
-           <div id="username">YingHua Ho</div>
+           <div id="username"></div>
            <div id="proflie" class="sidebarElement"><i class="fa fa-user"></i><a href="profile">Proflie</a></div>
            <div id="friends" class="sidebarElement"><i class="fa fa-users"></i>Contacts</div>
            <div id="message" class="sidebarElement"><i class="fa fa-envelope-o"></i></i>Message</div>
            <div id="chatsgroups" class="sidebarElement"><i class="fa fa-comment"></i>EB Game Chats</div>
            <div id="chatspersonal" class="sidebarElement"><i class="fa fa-comment"></i>Personal Chats</div>
+           <div id="logout" class="sidebarElement"><i class="fa fa-sign-out"></i>Logout</div>
            </div>
          </div>
 
@@ -41,7 +43,20 @@
       </div>
    </div>
 <body>
-</body>
-</html>
+
 <script src="scripts/AngularApp.js"></script>
 <script src="scripts/mainMenu.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("#logout").click(function(){
+    localStorage.clear();
+    document.location = "view/login.html";
+  });
+
+  $("#username").html(localStorage.getItem("firstname") + " " + localStorage.getItem("lastname"));
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+<head>
+	<title>Matt Chat at EB Games Messaging System</title>
+  <link rel="stylesheet" type="text/css" href="../css/css/global.css"/>
+</head>
+
+
+<body>
+
+<!-- ----------------- Main Content Start ----------------- -->
+<div class="login-errmsg">sadf</div>
+<div class="login-wrapper">
+  <input id="username" type="text" placeholder="Username"/>
+  <input id="password" type="password" placeholder="Password"/>
+  <button id="login">Login</button>
+  <a class="btn-login-signup" href="signup.html">Signup</a>
+</div>
+<!-- ----------------- Main Content End ----------------- -->
+
+
+<!-- ----------------- JavaScript and JQuery Start ----------------- -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+
+  $("#login").click(function(){
+    console.log("Login clicked!");
+
+    $.ajax({
+      url: "../controller/user_controller.php",
+      dataType: "json",
+      type: "POST",
+      data: {
+        method: "login",
+        username: $("#username").val(),
+        password: $("#password").val()
+      },
+      success: function(resp){
+        alert("Success! User is now logged in!");
+        console.log(resp);
+
+        localStorage.setItem("id", resp[0].id);
+        localStorage.setItem("username", resp[0].username);
+        localStorage.setItem("firstname", resp[0].firstname);
+        localStorage.setItem("lastname", resp[0].lastname);
+        localStorage.setItem("password", resp[0].password);
+        localStorage.setItem("email", resp[0].email);
+
+        document.location = "../index.html";
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR); 
+        console.log(textStatus); 
+        console.log(errorThrown); 
+      }
+    }); // ajax
+  }); // login click
+}); // document ready
+</script>
+<!-- ----------------- JavaScript and JQuery End ----------------- -->
+
+
+
+
+</body>
+</html>

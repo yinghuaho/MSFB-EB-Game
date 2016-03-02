@@ -6,18 +6,89 @@
       <div>Upload a new picture</div>
       <div><input type = "file" style="max-width:180px;"/></div>
     </div>
+
     <div class="settingElement">
-      <div>Name:</div>
-      <div><input type = "text" /></div>
+      <div id="setting-name"></div>
     </div>
+
     <div class="settingElement">
-      <div>Password:</div>
-      <div><input type = "password" /></div>
-    </div>
-    <div class="settingElement">
-      <div>Email:</div>
-      <div><input type="text" /></div>
+      <div id="setting-email"></div>
     </div>
   </div>
 
+
+
+<span>Edit Profile</span>
+
+
+    <div class="settingElement">
+      <div>New First Name:</div>
+      <div><input id="new-firstname" type="text" placeholder="New First Name"/></div>
+    </div>
+
+    <div class="settingElement">
+      <div>New Last Name:</div>
+      <div><input id="new-lastname" type="text" placeholder="New Last Name"/></div>
+    </div>
+
+    <div class="settingElement">
+      <div>New Email:</div>
+      <div><input id="new-email" type="text" placeholder="New Email"/></div>
+    </div>
+
+    <div class="settingElement">
+      <div>New Password:</div>
+      <div><input id="new-password" type="text" placeholder="New Password"/></div>
+    </div>
+
+    <button id="update-info">Update Info</button>
+
+  </div>
+
+
 </div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("#setting-name").html("Name: " + localStorage.getItem("firstname") + " " + localStorage.getItem("lastname"));
+  $("#setting-email").html("Email Address: " + localStorage.getItem("email"));
+
+  $("#update-info").click(function(){
+    console.log("Update info button clicked!");
+
+    $.ajax({
+      url: "./controller/user_controller.php",
+      dataType: "json",
+      type: "POST",
+      data: {
+        method: "update",
+        id: localStorage.getItem("id"),
+        firstname: $("#new-firstname").val(),
+        lastname: $("#new-lastname").val(),
+        email: $("#new-email").val(),
+        password: $("#new-password").val()
+      },
+      success: function(resp){
+        alert("Profile information successfully updated!");
+        console.log(resp);
+
+        localStorage.setItem("firstname", resp[0].firstname);
+        localStorage.setItem("lastname", resp[0].lastname);
+        localStorage.setItem("email", resp[0].email);
+        localStorage.setItem("password", resp[0].password);
+
+        location.reload();
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR); 
+        console.log(textStatus); 
+        console.log(errorThrown); 
+      }
+    }); // ajax
+  });
+});
+</script>

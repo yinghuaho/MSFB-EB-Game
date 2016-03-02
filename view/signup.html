@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>Matt Chat at EB Games Messaging System</title>
+  <link rel="stylesheet" type="text/css" href="../css/css/global.css"/>
+</head>
+
+
+<body>
+
+<!-- ----------------- Main Content Start ----------------- -->
+<div class="signup-errmsg">fsd</div>
+<div class="signup-wrapper">
+  <input id="username" type="text" placeholder="Username"/>
+  <input id="password" type="password" placeholder="Password"/>
+  <input id="firstname" type="text" placeholder="First Name"/>
+  <input id="lastname" type="text" placeholder="Last Name"/>
+  <input id="email" type="text" placeholder="Email"/>
+  <button id="signup">Sign Up</button>
+  <a class="btn-login-signup" href="login.html">Back</a>
+</div>
+<!-- ----------------- Main Content End ----------------- -->
+
+
+<!-- ----------------- JavaScript and JQuery Start ----------------- -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("#signup").click(function(){
+    console.log("Clicked on Sign Up!");
+
+    $.ajax({
+      url: "../controller/user_controller.php",
+      dataType: "html",
+      type: "POST",
+      data: {
+        method: "insert",
+        username: $("#username").val(),
+        password: $("#password").val(),
+        firstname: $("#firstname").val(),
+        lastname: $("#lastname").val(),
+        email: $("#email").val()
+      },
+      success: function(resp){
+        alert("Thanks for creating an account!");
+        document.location = "login.html";
+      }
+    }); // ajax
+  }); // signup click
+}); // document ready
+
+</script>
+<!-- ----------------- JavaScript and JQuery End ----------------- -->
+
+</body>
+</html>
