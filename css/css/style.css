@@ -167,7 +167,31 @@ html, body {
   background-color: #001217; }
 
 #display {
+  overflow-y: auto;
   width: 100%;
   height: 100%; }
+
+/*=============================== Message Style Area  ==================================*/
+/*======================================================================================*/
+.message-html {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  background: red;
+  flex-direction: column; }
+
+.message-display {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  background: orange;
+  flex-direction: column; }
+
+.message-input-area {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  background: green;
+  flex-direction: column; }
 
 /*# sourceMappingURL=style.css.map */
