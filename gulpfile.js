@@ -63,18 +63,18 @@ gulp.task('default', ['clean'] ,function() {
 gulp.task('watch', function() {
 
   // Watch .scss files
-  gulp.watch('sass/*' , ['styles']);
+  gulp.watch('css/*' , ['styles']);
 
   // Watch .js files
   gulp.watch('scripts/*.js', ['scripts']);
 
   // Watch image files
-  gulp.watch('images/raw/*', ['images']);
+  // gulp.watch('images/raw/*', ['images']);
 
-  // Create LiveReload server
-  livereload.listen();
+  // // Create LiveReload server
+  // livereload.listen();
 
-  // Watch any files in dist/, reload on change
-  gulp.watch(['**']).on('change', livereload.changed);
+  // // // Watch any files in dist/, reload on change
+  // gulp.watch(['**']).on('change', livereload.changed);
 
 });

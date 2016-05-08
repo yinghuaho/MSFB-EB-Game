@@ -24,50 +24,59 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+}
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-  display: block; }
+  display: block;
+}
 
 body {
-  line-height: 1; }
+  line-height: 1;
+}
 
 ol, ul {
-  list-style: none; }
+  list-style: none;
+}
 
 blockquote, q {
-  quotes: none; }
+  quotes: none;
+}
 
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
-  content: none; }
+  content: none;
+}
 
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-  outline: none; }
+  outline: none;
+}
 
 a {
   color: #fff;
-  text-decoration: none !important; }
+  text-decoration: none !important;
+}
 
 /*================================Gobal Css======================================*/
 /*===============================================================================*/
 html, body {
   height: 100vh;
   width: 100%;
-  font-family: "Source Sans Pro", sans-serif; }
+  font-family: "Source Sans Pro", sans-serif;
+}
 
 #wrapper {
-  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -75,18 +84,20 @@ html, body {
   -ms-flex-direction: column;
   flex-direction: column;
   width: 100vw;
-  height: 100%; }
+  height: 100%;
+}
 
 #contentArea {
-  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  height: 90%; }
+  height: 90%;
+}
 
 .fa {
-  padding-right: 5px; }
+  padding-right: 5px;
+}
 
 /*=============================== header Seciont ===============================*/
 /*===============================================================================*/
@@ -94,28 +105,42 @@ html, body {
   @width :100%;
   background: #f1f1f1;
   height: 10%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center; }
-  #header div {
-    display: flex;
-    align-items: center; }
-  #header img {
-    margin-left: 10px;
-    margin-right: 10px; }
-  #header input {
-    margin-right: 15px;
-    height: 30px;
-    border-radius: 25px; }
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#header div {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#header img {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#header input {
+  margin-right: 15px;
+  height: 30px;
+  border-radius: 25px;
+}
 
 #user {
   cursor: pointer;
-  padding-left: 5px; }
+  padding-left: 5px;
+}
 
 /*=============================== sideBar Seciont ===============================*/
 /*===============================================================================*/
 #sideBar {
-  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -130,11 +155,14 @@ html, body {
   color: white;
   background: #171d1f;
   transition: width 1.5s linear;
-  z-index: 0; }
-  @media screen and (max-width: 600px) {
-    #sideBar {
-      width: 0px;
-      z-index: 2; } }
+  z-index: 0;
+}
+@media screen and (max-width: 600px) {
+  #sideBar {
+    width: 0px;
+    z-index: 2;
+  }
+}
 
 #sideBarButton {
   display: inline-table;
@@ -144,30 +172,77 @@ html, body {
   background-color: #001217;
   padding: 10px;
   cursor: pointer;
-  z-index: 2; }
+  z-index: 2;
+}
 
 /*=============================== sideBarContent Section ===============================*/
 /*======================================================================================*/
 #sideBarContent {
   overflow: hidden;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column; }
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 
 .sidebarElement {
   padding: 15px;
   font-weight: 300;
-  cursor: pointer; }
-  .sidebarElement:hover {
-    background-color: #001217; }
+  cursor: pointer;
+}
+.sidebarElement:hover {
+  background-color: #001217;
+}
 
 #username {
   padding: 25px;
   font-weight: 400;
   font-size: 1.5em;
-  background-color: #001217; }
+  background-color: #001217;
+}
 
 #display {
+  overflow-y: auto;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+}
 
-/*# sourceMappingURL=style.css.map */
+/*=============================== Message Style Area  ==================================*/
+/*======================================================================================*/
+.message-html {
+  height: 100%;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: red;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.message-display {
+  height: 80%;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: orange;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.message-input-area {
+  height: 20%;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: green;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}

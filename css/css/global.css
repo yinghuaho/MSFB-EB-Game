@@ -14,7 +14,8 @@
   width: 100%;
   max-width: 320px;
   padding: 15px;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .signup-errmsg, .login-errmsg {
   font-size: 1em;
@@ -26,7 +27,8 @@
   height: 20px;
   width: 100%;
   max-width: 400px;
-  border: 1px dashed #000; }
+  border: 1px dashed #000;
+}
 
 .signup-wrapper > input, .login-wrapper > input {
   font-size: 1em;
@@ -37,7 +39,8 @@
   border-radius: 10px;
   padding: 15px;
   width: 100%;
-  max-width: 400px; }
+  max-width: 400px;
+}
 .signup-wrapper > button, .login-wrapper > button {
   font-size: 1em;
   display: block;
@@ -47,14 +50,16 @@
   width: 100%;
   max-width: 350px;
   padding: 15px;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .newinfo-input {
   background-color: #f2f2f2;
   font-size: 0.8em;
   border: 1px solid #000;
   padding: 5px;
-  text-align: center; }
+  text-align: center;
+}
 
 #update-info {
   background-color: #ddd;
@@ -67,6 +72,5 @@
   max-width: 400px;
   padding: 15px;
   margin-bottom: 50px;
-  cursor: pointer; }
-
-/*# sourceMappingURL=global.css.map */
+  cursor: pointer;
+}
