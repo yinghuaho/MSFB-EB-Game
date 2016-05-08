@@ -16,6 +16,11 @@ MessageApp.config([
                 templateUrl : "view/message.html",
                 controller: 'messageCtrl'
             }
+        ).when(
+            "/items", //the name for the route
+            {
+                templateUrl : "view/items.html"
+            }
         );
     }
 ])
@@ -105,5 +110,42 @@ function messageCtrl($scope, $rootScope, $window, $location, $http, $httpParamSe
         //             $location.url('page/signin');
         //         }
         //     });
+        $scope.messages =
+        {
+        	0:{message:"hi"},
+        	1:{message:"hi"},
+        	2:{message:"hi"},
+        	3:{message:"hi"},
+        	4:{message:"hi"}
+        }
+
+        console.log( $scope.messages);
+
+        $scope.user = 
+        {
+        	message : '',
+        	method: 'insert'
+        }
+
+        $scope.sendMessage = function(){
+        	console.log("clicked");
+        	console.log($scope.user);
+        	var userMessage = $scope.user;
+
+        	userMessage = $httpParamSerializerJQLike(userMessage);
+
+            var messageSend = $http({
+                method: 'POST',
+                url: "./controller/message_controller.php",
+                data: (userMessage),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+
+            messageSend.success(function(response) {
+                console.log(response);
+            });
+        }
  
     }

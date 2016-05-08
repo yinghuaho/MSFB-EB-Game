@@ -228,12 +228,17 @@ html,body{
 .input-warpper{
 	width:100%;
 	height:100%;
-	
+
 	div{
 		&:nth-of-type(1){
-			width:80%;
+			width:60%;
 			height:50px;
 			background:red;
+
+			textarea {
+				width: 100%;
+		    	height: 88%;
+		    } 
 		}
 
 		&:nth-of-type(2){

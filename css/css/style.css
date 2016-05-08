@@ -1,0 +1,308 @@
+/* Sass Document */
+/* Variable Document */
+/* Mixin Document */
+/* =========================Reset========================= */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+a {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+/*================================Gobal Css======================================*/
+/*===============================================================================*/
+html, body {
+  height: 100vh;
+  width: 100%;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+#wrapper {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100vw;
+  height: 100%;
+}
+
+#contentArea {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  height: 90%;
+}
+
+.fa {
+  padding-right: 5px;
+}
+
+.flex {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-column {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.center {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.between {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.around {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+}
+
+/*=============================== header Seciont ===============================*/
+/*===============================================================================*/
+#header {
+  @width :100%;
+  background: #f1f1f1;
+  height: 10%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#header div {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#header img {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#header input {
+  margin-right: 15px;
+  height: 30px;
+  border-radius: 25px;
+}
+
+#user {
+  cursor: pointer;
+  padding-left: 5px;
+}
+
+/*=============================== sideBar Seciont ===============================*/
+/*===============================================================================*/
+#sideBar {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: 250px;
+  height: 100%;
+  text-align: center;
+  color: white;
+  background: #171d1f;
+  transition: width 1.5s linear;
+  z-index: 0;
+}
+@media screen and (max-width: 600px) {
+  #sideBar {
+    width: 0px;
+    z-index: 2;
+  }
+}
+
+#sideBarButton {
+  display: inline-table;
+  position: absolute;
+  right: -36px;
+  color: white;
+  background-color: #001217;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/*=============================== sideBarContent Section ===============================*/
+/*======================================================================================*/
+#sideBarContent {
+  overflow: hidden;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sidebarElement {
+  padding: 15px;
+  font-weight: 300;
+  cursor: pointer;
+}
+.sidebarElement:hover {
+  background-color: #001217;
+}
+
+#username {
+  padding: 25px;
+  font-weight: 400;
+  font-size: 1.5em;
+  background-color: #001217;
+}
+
+#display {
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+}
+
+/*=============================== Message Style Area  ==================================*/
+/*======================================================================================*/
+.message-html {
+  height: 100%;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.message-display {
+  height: 85%;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: orange;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.message-input-area {
+  height: 15%;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: green;
+}
+
+.input-warpper {
+  width: 100%;
+  height: 100%;
+}
+.input-warpper div:nth-of-type(1) {
+  width: 60%;
+  height: 50px;
+  background: red;
+}
+.input-warpper div:nth-of-type(1) textarea {
+  width: 100%;
+  height: 88%;
+}
+.input-warpper div:nth-of-type(2) {
+  width: 15%;
+  height: 50px;
+  background: yellow;
+}

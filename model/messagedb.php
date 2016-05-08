@@ -1,5 +1,5 @@
 <?php
-include('class_lib.php'); 
+include('connection.php'); 
  
 function select_message(){
    global $db;
@@ -9,7 +9,7 @@ function select_message(){
   
 function insert_message(){
     global $db;
-    
+    var_dump($db);
     $query = "INSERT INTO message (userid, message ,touserid) VALUES ('".$_POST['userid']."', '".$_POST['message']."', '".$_POST['touserid']."')";
     $result = $db->query($query);
 }

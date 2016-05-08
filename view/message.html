@@ -1,9 +1,15 @@
 <div class="message-html">
-	<div class="message-display"></div>
+	<div class="message-display">
+		<div ng-repeat="message in messages">
+			<div>{{message.message}}</div>
+		</div>
+	</div>
 	<div class="message-input-area">
 		<div class="input-warpper flex center around">
-			<div><input type="text"></div>
-			<div>Send</div>
+			<div><textarea ng-model="user.message"></textarea></div>
+			<div class="center" ng-click="sendMessage()">Send</div>
 		</div>
 	</div>
 </div>
+
+
