@@ -99,6 +99,51 @@ html, body {
   padding-right: 5px;
 }
 
+.flex {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-column {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.center {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.between {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.around {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+}
+
 /*=============================== header Seciont ===============================*/
 /*===============================================================================*/
 #header {
@@ -217,14 +262,13 @@ html, body {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  background: red;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 
 .message-display {
-  height: 80%;
+  height: 85%;
   width: 100%;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -236,13 +280,25 @@ html, body {
 }
 
 .message-input-area {
-  height: 20%;
+  height: 15%;
   width: 100%;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   background: green;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+}
+
+.input-warpper {
+  width: 100%;
+  height: 100%;
+}
+.input-warpper div:nth-of-type(1) {
+  width: 80%;
+  height: 50px;
+  background: red;
+}
+.input-warpper div:nth-of-type(2) {
+  width: 15%;
+  height: 50px;
+  background: yellow;
 }

@@ -85,6 +85,31 @@ html,body{
 .fa{
 	padding-right:5px;
 }
+
+.flex{
+	display:flex;
+}
+
+.flex-column{
+	display:flex;
+	flex-direction:column;
+}
+
+.center{
+	display:flex;
+	justify-content: center;
+	align-items:center;
+}
+
+.between{
+	display:flex;
+	justify-content:space-between;
+}
+
+.around{
+	display:flex;
+	justify-content:space-around;
+}
 /*=============================== header Seciont ===============================*/
 /*===============================================================================*/
 #header{
@@ -182,12 +207,11 @@ html,body{
 	height:100%;
 	width:100%;
 	display:flex;
-	background:red;
 	flex-direction:column;
 }
 
 .message-display{
-	height:80%;
+	height:85%;
 	width:100%;
 	display:flex;
 	background:orange;
@@ -195,9 +219,27 @@ html,body{
 }
 
 .message-input-area{
-	height:20%;
+	height:15%;
 	width:100%;
 	display:flex;
 	background:green;
-	flex-direction:column;
+}
+
+.input-warpper{
+	width:100%;
+	height:100%;
+	
+	div{
+		&:nth-of-type(1){
+			width:80%;
+			height:50px;
+			background:red;
+		}
+
+		&:nth-of-type(2){
+			width:15%;
+			height:50px;
+			background:yellow;
+		}
+	}
 }
