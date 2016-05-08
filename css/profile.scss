@@ -24,3 +24,23 @@
       margin-top:0px;
     }
 }
+
+.profile-input {
+  width: 100%;
+  max-width: 400px;
+  .newinfo-input {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+    text-align: center;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #3885CC;
+    border-radius: 4px;
+    padding: 8px;
+  }
+}
+
+.edit-profile {
+  font-size: 2em;
+  font-weight: 600;
+}
