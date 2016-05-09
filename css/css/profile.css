@@ -35,24 +35,6 @@
 
 .profile-input {
   width: 100%;
-<<<<<<< HEAD
-  max-width: 400px; }
-  .profile-input .newinfo-input {
-    font-family: 'Raleway', sans-serif;
-    font-size: 1em;
-    width: 100%;
-    background-color: #fff;
-    border-bottom: 2px solid #3885CC;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    padding: 8px;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    transition: all 0.4s ease; }
-    .profile-input .newinfo-input:focus {
-      background-color: #ebf2f9; }
-=======
   max-width: 400px;
 }
 .profile-input .newinfo-input {
@@ -65,11 +47,11 @@
   border-right: none;
   border-left: none;
   padding: 8px;
+  transition: all 0.4s ease;
 }
 .profile-input .newinfo-input:focus {
   background-color: #ebf2f9;
 }
->>>>>>> d8b37ea5208d8e71bab694e69fe58c95958da4ef
 
 .edit-profile {
   font-size: 2em;
