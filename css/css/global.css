@@ -3,8 +3,7 @@
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 body {
-  font-family: 'Raleway', sans-serif;
-}
+  font-family: 'Raleway', sans-serif; }
 
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
       SIGN UP
@@ -24,13 +23,13 @@ body {
   max-width: 320px;
   padding: 15px;
   cursor: pointer;
-  transition: all 0.4s ease;
-}
-.btn-login-signup:hover {
-  background-color: #fff;
-  color: #3885CC;
-  border: 2px solid #3885CC;
-}
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease; }
+  .btn-login-signup:hover {
+    background-color: #fff;
+    color: #3885CC;
+    border: 2px solid #3885CC; }
 
 .signup-errmsg, .login-errmsg {
   font-size: 1em;
@@ -42,25 +41,22 @@ body {
   height: 20px;
   width: 100%;
   max-width: 400px;
-  border: 1px dashed #000;
-}
+  border: 1px dashed #000; }
 
 .signup-wrapper > input, .login-wrapper > input {
   font-family: 'Raleway', sans-serif;
   font-size: 1em;
   display: block;
-  margin: 5px auto;
+  margin: 30px auto;
   text-align: center;
   border: 2px solid #ccc;
   border-radius: 4px;
   padding: 15px;
   width: 100%;
-  max-width: 400px;
-}
-.signup-wrapper > input:focus, .login-wrapper > input:focus {
-  outline: none;
-  border: 2px solid #4CBA48;
-}
+  max-width: 400px; }
+  .signup-wrapper > input:focus, .login-wrapper > input:focus {
+    outline: none;
+    border: 2px solid #4CBA48; }
 .signup-wrapper > button, .login-wrapper > button {
   font-family: 'Raleway', sans-serif;
   background-color: #4CBA48;
@@ -74,13 +70,13 @@ body {
   max-width: 350px;
   padding: 15px;
   cursor: pointer;
-  transition: all 0.4s ease;
-}
-.signup-wrapper > button:hover, .login-wrapper > button:hover {
-  background-color: #fff;
-  color: #4CBA48;
-  border: 2px solid #4CBA48;
-}
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease; }
+  .signup-wrapper > button:hover, .login-wrapper > button:hover {
+    background-color: #fff;
+    color: #4CBA48;
+    border: 2px solid #4CBA48; }
 
 #update-info {
   font-family: 'Raleway', sans-serif;
@@ -96,10 +92,12 @@ body {
   padding: 15px;
   margin-bottom: 50px;
   cursor: pointer;
-  transition: all 0.4s ease;
-}
-#update-info:hover {
-  background-color: #fff;
-  color: #4CBA48;
-  border: 2px solid #4CBA48;
-}
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease; }
+  #update-info:hover {
+    background-color: #fff;
+    color: #4CBA48;
+    border: 2px solid #4CBA48; }
+
+/*# sourceMappingURL=global.css.map */
