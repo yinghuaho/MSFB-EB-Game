@@ -1,4 +1,4 @@
-var MessageApp = angular.module("MessageApp", ["ngRoute"]);
+var MessageApp = angular.module("MessageApp", ["ngRoute",'luegg.directives']);
 
 MessageApp.config([
     "$routeProvider", "$locationProvider", function($routeProvider, $locationProvider){
@@ -16,14 +16,22 @@ MessageApp.config([
                 templateUrl : "view/message.html",
                 controller: 'messageCtrl'
             }
+        ).when(
+            "/items", //the name for the route
+            {
+                templateUrl : "view/items.html"
+            }
         );
     }
 ])
+.run(function(){
+	console.log("run");
+})
 
- .controller('messageCtrl', ['$scope', '$rootScope','$window', '$location', '$http', '$httpParamSerializerJQLike', messageCtrl]);
+ .controller('messageCtrl', ['$scope', '$rootScope','$window', '$location', '$http', '$httpParamSerializerJQLike',  messageCtrl]);
 
 
-function messageCtrl($scope, $rootScope, $window, $location, $http, $httpParamSerializerJQLike, appConfig, authService) {
+function messageCtrl($scope, $rootScope, $window, $location, $http, $httpParamSerializerJQLike) {
 
 		console.log("Mesage Page");
         // var main = appConfig.main;
@@ -105,25 +113,29 @@ function messageCtrl($scope, $rootScope, $window, $location, $http, $httpParamSe
         //             $location.url('page/signin');
         //         }
         //     });
-        $scope.messages{
-        	{
-        		message:"hi"
-        	},
-        	{
-        		message:"how are you"
-        	},
-        }
+        // $scope.messages =
+        // {
+        // 	0:{message:"hi"},
+        // 	1:{message:"hi"},
+        // 	2:{message:"hi"},
+        // 	3:{message:"hi"},
+        // 	4:{message:"hi"}
+        // }
+
+        console.log( $scope.messages);
 
         $scope.user = 
         {
         	message : '',
-        	method: 'insert'
+        	method: 'insert',
+        	userid: localStorage.getItem("id")
         }
 
         $scope.sendMessage = function(){
         	console.log("clicked");
         	console.log($scope.user);
         	var userMessage = $scope.user;
+        	console.log(userMessage);
 
         	userMessage = $httpParamSerializerJQLike(userMessage);
 
@@ -138,8 +150,37 @@ function messageCtrl($scope, $rootScope, $window, $location, $http, $httpParamSe
 
             messageSend.success(function(response) {
                 console.log(response);
+                getMessages();
             });
         }
+
+
+        var getMessages = function(){
+
+        	var dataSend ={
+        		method: 'view',
+        	};
+
+        	dataSend = $httpParamSerializerJQLike(dataSend);
+
+
+        	var getMessagesFromDatabase = $http({
+                method: 'POST',
+                url: "./controller/message_controller.php",
+                data: (dataSend),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+
+            getMessagesFromDatabase.success(function(response) {
+                $scope.messages = response;
+                console.log($scope.messages);
+            });
+
+        }
+
+        getMessages();
  
     }
 (function(){

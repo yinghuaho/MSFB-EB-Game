@@ -24,6 +24,9 @@ MessageApp.config([
         );
     }
 ])
+.run(function(){
+	console.log("run");
+})
 
  .controller('messageCtrl', ['$scope', '$rootScope','$window', '$location', '$http', '$httpParamSerializerJQLike',  messageCtrl]);
 
