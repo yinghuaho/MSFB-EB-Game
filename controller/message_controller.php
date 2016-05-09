@@ -1,6 +1,7 @@
 <?php
 include("../model/messagedb.php");
 
+
 if($_POST['method'] == "insert"){
     insert_message();
 }

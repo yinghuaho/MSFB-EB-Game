@@ -3,14 +3,19 @@ include('connection.php');
  
 function select_message(){
    global $db;
-    $query = "SELECT * FROM message";
-   $result = $db->query($query);
+  $query = "
+  SELECT users.username, message.message, message.time
+  FROM message
+  LEFT JOIN users
+  ON message.userid = users.id
+";
+  $result = $db->query($query);
+  echo json_encode($result->fetchAll());
 }
   
 function insert_message(){
     global $db;
-    var_dump($db);
-    $query = "INSERT INTO message (userid, message ,touserid) VALUES ('".$_POST['userid']."', '".$_POST['message']."', '".$_POST['touserid']."')";
+    $query = "INSERT INTO message (userid, message) VALUES ('".$_POST['userid']."', '".$_POST['message']."')";
     $result = $db->query($query);
 }
 

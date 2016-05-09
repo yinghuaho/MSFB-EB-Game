@@ -1,7 +1,11 @@
 <div class="message-html">
-	<div class="message-display">
-		<div ng-repeat="message in messages">
-			<div>{{message.message}}</div>
+	<div class="message-display" scroll-glue>
+		<div ng-repeat="message in messages track by $index">
+			<div class="flex user-message">
+				<div>{{message.username}}:</div>
+				<div>{{message.message}} </div>
+				<div>at {{message.time}}</div>
+			</div>
 		</div>
 	</div>
 	<div class="message-input-area">
