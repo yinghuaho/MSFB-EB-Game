@@ -32,7 +32,10 @@
     border-top: none;
     border-right: none;
     border-left: none;
-    padding: 8px; }
+    padding: 8px;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease; }
     .profile-input .newinfo-input:focus {
       background-color: #ebf2f9; }
 
