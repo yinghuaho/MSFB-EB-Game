@@ -26,12 +26,15 @@
   .profile-input .newinfo-input {
     font-family: 'Raleway', sans-serif;
     font-size: 1em;
-    text-align: center;
     width: 100%;
     background-color: #fff;
-    border: 1px solid #3885CC;
-    border-radius: 4px;
+    border-bottom: 2px solid #3885CC;
+    border-top: none;
+    border-right: none;
+    border-left: none;
     padding: 8px; }
+    .profile-input .newinfo-input:focus {
+      background-color: #ebf2f9; }
 
 .edit-profile {
   font-size: 2em;
