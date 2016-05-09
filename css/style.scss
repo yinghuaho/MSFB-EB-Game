@@ -216,6 +216,7 @@ html,body{
 	display:flex;
 	background:orange;
 	flex-direction:column;
+	overflow-y:auto;
 }
 
 .message-input-area{
@@ -248,3 +249,20 @@ html,body{
 		}
 	}
 }
+
+.user-message{
+	padding:10px;
+	.message-from-user{
+		padding-left:15px;
+		max-width: 65%;
+		word-wrap: break-word;
+	}
+	.time-of-message{
+		padding-left:15px;
+		display:flex;
+		align-items: flex-end;
+		font-size:9px;
+	}
+}
+
+//

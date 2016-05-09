@@ -204,7 +204,8 @@ html, body {
   width: 100%;
   display: flex;
   background: orange;
-  flex-direction: column; }
+  flex-direction: column;
+  overflow-y: auto; }
 
 .message-input-area {
   height: 15%;
@@ -226,5 +227,17 @@ html, body {
     width: 15%;
     height: 50px;
     background: yellow; }
+
+.user-message {
+  padding: 10px; }
+  .user-message .message-from-user {
+    padding-left: 15px;
+    max-width: 65%;
+    word-wrap: break-word; }
+  .user-message .time-of-message {
+    padding-left: 15px;
+    display: flex;
+    align-items: flex-end;
+    font-size: 9px; }
 
 /*# sourceMappingURL=style.css.map */
