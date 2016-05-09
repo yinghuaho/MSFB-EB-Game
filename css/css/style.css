@@ -307,3 +307,22 @@ html, body {
   height: 50px;
   background: yellow;
 }
+
+.user-message {
+  padding: 10px;
+}
+.user-message .message-from-user {
+  padding-left: 15px;
+  max-width: 65%;
+  word-wrap: break-word;
+}
+.user-message .time-of-message {
+  padding-left: 15px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  font-size: 9px;
+}
