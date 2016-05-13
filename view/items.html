@@ -2,27 +2,23 @@
 
 <div class="items-html">
 
-<h1>Create a Post</h1>
+    <h1>Create a Post</h1>
 
-  <div class="item-create">
-    <label for="item-img">Image URL</label><input id="item-img" type="text" name="item-img" placeholder="image url">
-    <label for="item-title">Title</label><input id="item-title" type="text" name="item-title" placeholder="title">
-    <label for="item-desc">Description</label><textarea id="item-desc" name="item-desc" rows="5" cols="55" placeholder="description"></textarea>
-    <button id="item-submit">Create Post</button>
-  </div>
+      <div class="item-create">
+        <label for="item-img">Image URL</label><input ng-model="itemsSend.url" id="item-img" type="text" name="item-img" placeholder="image url">
+        <label for="item-title">Title</label><input ng-model="itemsSend.title " id="item-title" type="text" name="item-title" placeholder="title">
+        <label for="item-desc">Description</label><textarea ng-model="itemsSend.description" id="item-desc" name="item-desc" rows="5" cols="55" placeholder="description"></textarea>
+        <button id="item-submit" ng-click="pushNewItems()">Create Post</button>
+      </div>
 
-<div class="divider"></div>
+    <div class="divider"></div>
 
-  <div class="item-wrapper">
-    <img src="./images/fillerimage.jpg"/>
-    <span>News Title!!</span>
-    <p>hi there adfadf adf daf adsklfjldjs lajdfkladjfl ajdlfjlkdajfeafdk fjaldkjf</p>
-  </div>
+    <div ng-repeat="item in items">
+        <div class="item-wrapper">
+            <img ng-src="{{item.url}}"/>
+            <span>{{item.title}}</span>
+            <p>{{item.description}}</p>
+        </div>
 
-  <div class="item-wrapper">
-    <img src="./images/fillerimage.jpg"/>
-    <span>News Title!!</span>
-    <p>hi there adfadf adf daf adsklfjldjs lajdfkladjfl ajdlfjlkdajfeafdk fjaldkjf</p>
-  </div>
-
+    </div>
 </div>

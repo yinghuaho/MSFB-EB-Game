@@ -1,16 +1,18 @@
 <?php
-include('class_lib.php'); 
+include('connection.php'); 
  
 function select_item(){
    global $db;
-    $query = "SELECT * FROM items";
+   $query = "SELECT * FROM items";
    $result = $db->query($query);
+   echo json_encode($result->fetchAll());
 }
   
 function insert_item(){
     global $db;
-    $query = "INSERT INTO items (title, description, date, userid) VALUES ('".$_POST['title']."', '".$_POST['description']."', '".$_POST['date']."', '".$_POST['userid']."')";
+    $query = "INSERT INTO items (title, url,description, userid) VALUES ('".$_POST['title']."', '".$_POST['description']."', '".$_POST['url']."', '".$_POST['userid']."')";
     $result = $db->query($query);
+    echo json_encode($result->fetchAll());
 }
 
 function update_item(){

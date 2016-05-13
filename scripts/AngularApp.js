@@ -1,4 +1,4 @@
-var MessageApp = angular.module("MessageApp", ["ngRoute",'luegg.directives']);
+var MessageApp = angular.module("MessageApp", ["ngRoute",'luegg.directives', 'toastr']);
 
 MessageApp.config([
     "$routeProvider", "$locationProvider", function($routeProvider, $locationProvider){
@@ -19,7 +19,8 @@ MessageApp.config([
         ).when(
             "/items", //the name for the route
             {
-                templateUrl : "view/items.html"
+                templateUrl : "view/items.html",
+                controller: 'itemsCtrl'
             }
         );
     }
@@ -28,99 +29,11 @@ MessageApp.config([
 	console.log("run");
 })
 
- .controller('messageCtrl', ['$scope', '$rootScope','$window', '$location', '$http', '$httpParamSerializerJQLike',  messageCtrl]);
+ .controller('messageCtrl', ['$scope', '$rootScope','$window', '$location', '$http', '$httpParamSerializerJQLike',  messageCtrl])
+ .controller('itemsCtrl', ['$scope', '$rootScope','$window', '$location', '$http', 'toastr','$httpParamSerializerJQLike',  itemsCtrl]);
 
 
-function messageCtrl($scope, $rootScope, $window, $location, $http, $httpParamSerializerJQLike) {
-
-		console.log("Mesage Page");
-        // var main = appConfig.main;
-
-        // $scope.login = function($event, credentials) {
-        //     // $location.url('/')
-        //     event.preventDefault();
-        //     console.log('logging in!');
-
-        //     $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
-
-        //     var userInfo = {
-        //         name: credentials.username,
-        //         password: credentials.password
-        //     };
-
-        //     console.log(userInfo);
-
-        //     userInfo = $httpParamSerializerJQLike(userInfo);
-
-        //     var loginResponse = $http({
-        //         method: 'POST',
-        //         url: main.orchestraURL + '/authorize',
-        //         data: (userInfo),
-        //         headers: {
-        //             'Content-Type': 'application/x-www-form-urlencoded'
-        //         }
-        //     });
-
-        //     loginResponse.success(function(response) {
-        //         // if(response.match == false){ <--username and password doesn't match any row in our database
-        //         //     console.log("username or password is wrong");
-        //         // }else if (response.match == true){
-        //         //     saveJwtToken(response.token);
-        //         //     //role = response.role  <--role checking
-        //         //     location.url('/');
-        //         // }
-        //         console.log(response);
-        //         console.log('logging in with token ' + response.token);
-        //         saveJwtToken(response.token);
-        //         $rootScope.user_role = authService.role(); 
-        //         console.log($rootScope.user_role);
-
-        //         $location.url('/');
-        //     });
-
-        //     loginResponse.error(function(response){
-        //         console.log("Ajax Call Failed");
-        //     });
-        // }
-
-        // $scope.logout = function($event) {
-        //     event.preventDefault();
-        //     $window.localStorage.removeItem('jwtToken');
-        //     $location.url('page/signin');
-        // }
-
-        // $scope.findPassword= function($event) {
-        //     event.preventDefault();
-        //     var email = $scope.forgetPassword;
-
-        //     var emailResetRespond = $http({
-        //         method: 'POST',
-        //         url: main.orchestraURL + '/authorize',
-        //         data: (email),
-        //         headers: {
-        //             'Content-Type': 'application/x-www-form-urlencoded'
-        //         }
-        //     });
-
-        //     emailResetRespond.success(function(response) {
-        //         console.log(response);
-        //         if(response.find == false)
-        //         {
-        //             console.log("Email does not exist in the system");
-        //         }else if(response.find == true)
-        //         {
-        //             console.log("checked your email");
-        //             $location.url('page/signin');
-        //         }
-        //     });
-        // $scope.messages =
-        // {
-        // 	0:{message:"hi"},
-        // 	1:{message:"hi"},
-        // 	2:{message:"hi"},
-        // 	3:{message:"hi"},
-        // 	4:{message:"hi"}
-        // }
+function messageCtrl($scope, $rootScope, $window, $location, $http,$httpParamSerializerJQLike) {
 
         console.log( $scope.messages);
 
@@ -183,3 +96,82 @@ function messageCtrl($scope, $rootScope, $window, $location, $http, $httpParamSe
         getMessages();
  
     }
+
+function itemsCtrl($scope, $rootScope, $window, $location, $http, toastr,$httpParamSerializerJQLike) {
+
+        console.log("items page");
+
+         $scope.itemsSend = 
+        {
+            title : '',
+            url: '',
+            description: '',
+            method: 'insert',
+            userid: localStorage.getItem("id")
+        }
+
+
+        $scope.pushNewItems = function(){
+
+            if($scope.itemsSend.title == ""){
+                toastr.error('Title is required');
+                return false;
+            }else if($scope.itemsSend.url == ""){
+                toastr.error('Url is required');
+                return false;
+            }else if($scope.itemsSend.description == "")
+            {
+                toastr.error('Description is required');
+                return false;
+            }
+
+            var userItem = $scope.itemsSend;
+
+            userItem = $httpParamSerializerJQLike(userItem);
+
+            var itemSend = $http({
+                method: 'POST',
+                url: "./controller/item_controller.php",
+                data: (userItem),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+
+            itemSend.success(function(response) {
+                console.log(response);
+                toastr.success('New Post Created');
+                getItems();
+            });
+        }
+
+        var getItems = function(){
+            console.log("items page");
+
+            var dataSend ={
+                method: 'view',
+            };
+
+            dataSend = $httpParamSerializerJQLike(dataSend);
+
+
+            var getItemsFromDatabase = $http({
+                method: 'POST',
+                url: "./controller/item_controller.php",
+                data: (dataSend),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+
+            getItemsFromDatabase.success(function(response) {
+                $scope.items = response.reverse();
+                console.log($scope.items);
+            });
+
+        }
+
+        getItems();
+
+}
+
