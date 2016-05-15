@@ -36,15 +36,17 @@ MessageApp.config([
 	console.log("run");
 })
 
- .controller('messageCtrl', ['$scope', '$rootScope','$window', '$location', '$http', '$httpParamSerializerJQLike',  messageCtrl])
+ .controller('messageCtrl', ['$scope', '$rootScope','$window', '$location', '$http', 'toastr','$httpParamSerializerJQLike',  messageCtrl])
  .controller('itemsCtrl', ['$scope', '$rootScope','$window', '$location', '$http', 'toastr','$httpParamSerializerJQLike',  itemsCtrl])
   .controller('myItemsCtrl', ['$scope', '$rootScope','$window', '$location', '$http', 'toastr','$httpParamSerializerJQLike',  myItemsCtrl]);
 
 
 
-function messageCtrl($scope, $rootScope, $window, $location, $http,$httpParamSerializerJQLike) {
+function messageCtrl($scope, $rootScope, $window, $location, $http, toastr,$httpParamSerializerJQLike) {
 
         console.log( $scope.messages);
+        $scope.messageEdit = false;
+        $scope.messageEditButton = "Edit";
 
         $scope.user = 
         {
@@ -103,6 +105,68 @@ function messageCtrl($scope, $rootScope, $window, $location, $http,$httpParamSer
         }
 
         getMessages();
+
+
+        $scope.edit = function(id,message){
+            if($scope.messageEdit == false)
+            {
+                $scope.messageEdit = true;
+                $scope.messageEditButton = "Done";
+            }else{
+                $scope.messageEdit = false;
+                $scope.messageEditButton = "Edit";
+            }
+
+            console.log(id,message);
+            var messageSendUpdate ={
+                method: 'update',
+                id: id,
+                message: message
+
+            };
+
+            messageSendUpdate = $httpParamSerializerJQLike(messageSendUpdate);
+
+
+            var updateMessageFromDatabase = $http({
+                method: 'POST',
+                url: "./controller/message_controller.php",
+                data: (messageSendUpdate),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+
+            updateMessageFromDatabase.success(function(response) {
+                getMessages();
+            });
+
+        }
+
+        $scope.delete = function(id){
+            var messageSendDelete ={
+                method: 'delete',
+                id: id
+
+            };
+
+            messageSendDelete = $httpParamSerializerJQLike(messageSendDelete);
+
+
+            var deleteMessageFromDatabase = $http({
+                method: 'POST',
+                url: "./controller/message_controller.php",
+                data: (messageSendDelete),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+
+            deleteMessageFromDatabase.success(function(response) {
+                toastr.success('Delete Successful');
+                getMessages();
+            });
+        }
  
     }
 
@@ -223,8 +287,6 @@ function myItemsCtrl($scope, $rootScope, $window, $location, $http, toastr,$http
 
 
     $scope.deleteItems = function(itemID){
-        console.log("delete");
-        console.log(itemID);
 
             var dataSendDelete ={
                 method: 'delete',
@@ -273,7 +335,7 @@ function myItemsCtrl($scope, $rootScope, $window, $location, $http, toastr,$http
             dataSendUpdate = $httpParamSerializerJQLike(dataSendUpdate);
 
 
-            var updateItemsFromDatabase = $http({
+            var deleteItemsFromDatabase = $http({
                 method: 'POST',
                 url: "./controller/item_controller.php",
                 data: (dataSendUpdate),
@@ -282,7 +344,7 @@ function myItemsCtrl($scope, $rootScope, $window, $location, $http, toastr,$http
                 }
             });
 
-            updateItemsFromDatabase.success(function(response) {
+            deleteItemsFromDatabase.success(function(response) {
                 // toastr.success('Update Successful');
                 getItems();
             });

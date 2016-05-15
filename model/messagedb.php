@@ -4,7 +4,7 @@ include('connection.php');
 function select_message(){
    global $db;
   $query = "
-  SELECT users.username, message.message, message.time
+  SELECT users.username, message.message, message.time, message.id
   FROM message
   LEFT JOIN users
   ON message.userid = users.id
@@ -23,11 +23,13 @@ function update_message(){
    global $db;
    $query = "UPDATE message SET message = '".$_POST['message']."' WHERE id = '".$_POST['id']."' ";
    $result = $db->query($query);
+   var_dump($_POST);
+   echo json_encode($result->fetchAll()); 
 }
 
 function delete_message(){
    global $db;
-   $query = "DELETE FROM message WHERE id = '".$_POST['userid']."' ";
+   $query = "DELETE FROM message WHERE id = '".$_POST['id']."' ";
    $result = $db->query($query);
     
 }
