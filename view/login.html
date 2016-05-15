@@ -46,7 +46,7 @@ $(document).ready(function(){
         localStorage.setItem("password", resp[0].password);
         localStorage.setItem("email", resp[0].email);
 
-        document.location = "../index.html";
+        document.location = "view/profile";
       },
       error: function(jqXHR, textStatus, errorThrown) {
         console.log(jqXHR); 
