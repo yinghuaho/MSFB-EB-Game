@@ -66,7 +66,7 @@ a {
 html,body{
 	height:100vh;
 	width:100%;
-	font-family: $fontStyle;
+	font-family: 'Raleway', sans-serif;
 }
 
 #wrapper{
@@ -208,22 +208,25 @@ html,body{
 	width:100%;
 	display:flex;
 	flex-direction:column;
+	overflow: hidden;
 }
 
 .message-display{
 	height:85%;
 	width:100%;
 	display:flex;
-	background:orange;
+	background: lighten(#3885CC, 40%);
 	flex-direction:column;
 	overflow-y:auto;
+	padding-left: 2rem;
+	padding-top: 1rem;
 }
 
 .message-input-area{
 	height:15%;
 	width:100%;
 	display:flex;
-	background:green;
+	background:#3885CC;
 }
 
 .input-warpper{
@@ -234,34 +237,55 @@ html,body{
 		&:nth-of-type(1){
 			width:60%;
 			height:50px;
-			background:red;
+			background:#fff;
 
 			textarea {
 				width: 100%;
-		    	height: 88%;
-		    } 
+		    height: 88%;
+		    font-family: 'Raleway', sans-serif;
+		    font-size: 0.8em;
+		    border: 1px solid #fff;
+
+		  } 
 		}
 
 		&:nth-of-type(2){
 			width:15%;
 			height:50px;
-			background:yellow;
+			color: #fff;
+			background:darken(#3885CC, 20%);
+			cursor: pointer;
+			border-radius: 4px;
+			-webkit-transition: all 0.4s ease;
+     	   -moz-transition: all 0.4s ease;
+              transition: all 0.4s ease;
+			&:hover {
+				background: darken(#3885CC, 15%);
+			}
 		}
 	}
 }
 
 .user-message{
 	padding:10px;
+	.message-username {
+		font-size: 1.1em;
+		font-weight: 600;
+	}
 	.message-from-user{
 		padding-left:15px;
 		max-width: 65%;
 		word-wrap: break-word;
+		font-size: 1.1em;
+		font-weight: 600;
+		color: #163551;
 	}
 	.time-of-message{
 		padding-left:15px;
-		display:flex;
-		align-items: flex-end;
-		font-size:9px;
+		// display:flex;
+		// align-items: flex-end;
+		font-size: 1.1em;
+		color: #73a9db;
 	}
 }
 

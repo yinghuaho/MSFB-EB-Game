@@ -19,7 +19,7 @@
 .settingElement{
   display:flex;
   justify-content: space-between;
-  margin:50px 0px 50px 0px;
+  margin:40px 0px 40px 0px;
     &:first-child{
       margin-top:0px;
     }
@@ -27,7 +27,6 @@
 
 .profile-input {
   width: 100%;
-  max-width: 400px;
   .newinfo-input {
     font-family: 'Raleway', sans-serif;
     font-size: 1em;

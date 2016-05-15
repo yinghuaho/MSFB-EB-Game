@@ -1,59 +1,45 @@
 /*================================Profile Css======================================*/
 /*=================================================================================*/
 #profile {
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 80%;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 #setting {
   width: 80%;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 #picture {
-  margin: 10vw auto;
-}
+  margin: 10vw auto; }
 
 .settingElement {
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 50px 0px 50px 0px;
-}
-.settingElement:first-child {
-  margin-top: 0px;
-}
+  justify-content: space-between;
+  margin: 40px 0px 40px 0px; }
+  .settingElement:first-child {
+    margin-top: 0px; }
 
 .profile-input {
-  width: 100%;
-  max-width: 400px;
-}
-.profile-input .newinfo-input {
-  font-family: 'Raleway', sans-serif;
-  font-size: 1em;
-  width: 100%;
-  background-color: #fff;
-  border-bottom: 2px solid #3885CC;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  padding: 8px;
-  transition: all 0.4s ease;
-}
-.profile-input .newinfo-input:focus {
-  background-color: #ebf2f9;
-}
+  width: 100%; }
+  .profile-input .newinfo-input {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 2px solid #3885CC;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    padding: 8px;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease; }
+    .profile-input .newinfo-input:focus {
+      background-color: #ebf2f9; }
 
 .edit-profile {
   font-size: 2em;
-  font-weight: 600;
-}
+  font-weight: 600; }
+
+/*# sourceMappingURL=profile.css.map */
