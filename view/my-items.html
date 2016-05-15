@@ -1,5 +1,5 @@
     <div ng-repeat="item in itemsMe ">
-        <div class="item-wrapper item-create">
+        <div class="item-wrapper">
             <img ng-if="!edit" ng-src="{{item.url}}"/>
             <div ng-if="edit">
 				<label for="item-img">Image URL</label><input ng-model="item.url" id="item-img" type="text" name="item-img" placeholder="image url">
