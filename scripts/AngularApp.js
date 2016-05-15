@@ -29,7 +29,10 @@ MessageApp.config([
                 controller: 'myItemsCtrl'
             }
 
-        );
+        ).
+          otherwise({
+            redirectTo: '/profile'
+          });;
     }
 ])
 .run(function(){
