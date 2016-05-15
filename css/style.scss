@@ -287,6 +287,20 @@ html,body{
 		font-size: 1.1em;
 		color: #73a9db;
 	}
+	.edit-msg, .delete-msg {
+		border: 1px solid #000;
+		background: #fff;
+		margin-left: 1rem;
+		border-radius: 4px;
+		-webkit-transition: all 0.4s ease;
+	   	 -moz-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+		&:hover {
+			background: #3885CC;
+			color: #fff;
+			border: 1px solid #3885CC;
+		}
+	}
 }
 
 //

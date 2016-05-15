@@ -8,8 +8,8 @@
 				<div>
 				<textarea ng-if="messageEdit" ng-model="message.message " id="item-title" type="text" name="item-title" placeholder="title"></textarea> 
 				</div>
-				<button ng-click="edit(message.id,message.message)">{{messageEditButton}}</button>
-				<button ng-click="delete(message.id)">delete</button>
+				<button class="edit-msg" ng-click="edit(message.id,message.message)">{{messageEditButton}}</button>
+				<button class="delete-msg" ng-click="delete(message.id)">Delete</button>
 			</div>
 		</div>
 	</div>

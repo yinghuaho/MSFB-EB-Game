@@ -259,5 +259,17 @@ html, body {
     padding-left: 15px;
     font-size: 1.1em;
     color: #73a9db; }
+  .user-message .edit-msg, .user-message .delete-msg {
+    border: 1px solid #000;
+    background: #fff;
+    margin-left: 1rem;
+    border-radius: 4px;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease; }
+    .user-message .edit-msg:hover, .user-message .delete-msg:hover {
+      background: #3885CC;
+      color: #fff;
+      border: 1px solid #3885CC; }
 
 /*# sourceMappingURL=style.css.map */

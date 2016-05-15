@@ -4,11 +4,10 @@
   display: flex;
   flex-direction: column;
   width: 80%;
-  margin: 0 auto; }
+  margin: 3rem auto; }
 
 #setting {
-  width: 80%;
-  margin: 0 auto; }
+  width: 80%; }
 
 #picture {
   margin: 10vw auto; }
