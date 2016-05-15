@@ -1,7 +1,7 @@
 var MessageApp = angular.module("MessageApp", ["ngRoute",'luegg.directives', 'toastr']);
 
 MessageApp.config([
-    "$routeProvider", "$locationProvider", function($routeProvider, $locationProvider){
+    "$routeProvider", "$locationProvider",  function($routeProvider, $locationProvider){
 
         $locationProvider.html5Mode(true);
 
@@ -31,13 +31,20 @@ MessageApp.config([
 
         ).
           otherwise({
-            redirectTo: '/profile'
-          });;
+            redirectTo: '/message'
+          });
     }
 ])
-.run(function(){
-	console.log("run");
-})
+.run(['$rootScope', function ($rootScope) {
+        $rootScope.userLoggedIn = true;
+        console.log(localStorage.getItem("id"));
+        if(localStorage.getItem("id") === null)
+        {
+            console.log("not logged in");
+            $rootScope.userLoggedIn = false;
+        }
+
+}])
 
  .controller('messageCtrl', ['$scope', '$rootScope','$window', '$location', '$http', 'toastr','$httpParamSerializerJQLike',  messageCtrl])
  .controller('itemsCtrl', ['$scope', '$rootScope','$window', '$location', '$http', 'toastr','$httpParamSerializerJQLike',  itemsCtrl])
