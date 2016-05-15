@@ -22,6 +22,13 @@ MessageApp.config([
                 templateUrl : "view/items.html",
                 controller: 'itemsCtrl'
             }
+        ).when(
+            "/my_items",
+            {
+                templateUrl: "view/my-items.html",
+                controller: 'myItemsCtrl'
+            }
+
         );
     }
 ])
@@ -30,7 +37,9 @@ MessageApp.config([
 })
 
  .controller('messageCtrl', ['$scope', '$rootScope','$window', '$location', '$http', '$httpParamSerializerJQLike',  messageCtrl])
- .controller('itemsCtrl', ['$scope', '$rootScope','$window', '$location', '$http', 'toastr','$httpParamSerializerJQLike',  itemsCtrl]);
+ .controller('itemsCtrl', ['$scope', '$rootScope','$window', '$location', '$http', 'toastr','$httpParamSerializerJQLike',  itemsCtrl])
+  .controller('myItemsCtrl', ['$scope', '$rootScope','$window', '$location', '$http', 'toastr','$httpParamSerializerJQLike',  myItemsCtrl]);
+
 
 
 function messageCtrl($scope, $rootScope, $window, $location, $http,$httpParamSerializerJQLike) {
@@ -172,6 +181,113 @@ function itemsCtrl($scope, $rootScope, $window, $location, $http, toastr,$httpPa
         }
 
         getItems();
+
+}
+
+function myItemsCtrl($scope, $rootScope, $window, $location, $http, toastr,$httpParamSerializerJQLike) {
+
+    $scope.edit = false;
+    $scope.editButtonName = "Edit";
+
+    var getItems = function(){
+            console.log("my-items page");
+
+            var dataSend ={
+                method: 'view_me',
+                userid: localStorage.getItem("id") 
+
+            };
+
+            dataSend = $httpParamSerializerJQLike(dataSend);
+
+
+            var getItemsFromDatabase = $http({
+                method: 'POST',
+                url: "./controller/item_controller.php",
+                data: (dataSend),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+
+            getItemsFromDatabase.success(function(response) {
+                $scope.itemsMe = response.reverse();
+                console.log($scope.itemsMe);
+
+            });
+
+        }
+
+        getItems();
+
+
+
+    $scope.deleteItems = function(itemID){
+        console.log("delete");
+        console.log(itemID);
+
+            var dataSendDelete ={
+                method: 'delete',
+                id: itemID
+
+            };
+
+            dataSendDelete = $httpParamSerializerJQLike(dataSendDelete);
+
+
+            var getItemsFromDatabase = $http({
+                method: 'POST',
+                url: "./controller/item_controller.php",
+                data: (dataSendDelete),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+
+            getItemsFromDatabase.success(function(response) {
+                toastr.success('Delete Successful');
+                getItems();
+            });
+    }
+
+    $scope.updateItems = function(itemID,itemUrl,itemTitle,itemDescription){
+        console.log("update");
+        console.log(itemID,itemUrl,itemTitle,itemDescription);
+        if($scope.edit == false){
+            $scope.edit = true;
+            $scope.editButtonName = "Update";
+        }else
+        {
+            $scope.edit = false;
+        }
+
+            var dataSendUpdate ={
+                method: 'update',
+                id: itemID,
+                url: itemUrl,
+                title: itemTitle,
+                description: itemDescription
+
+            };
+
+            dataSendUpdate = $httpParamSerializerJQLike(dataSendUpdate);
+
+
+            var updateItemsFromDatabase = $http({
+                method: 'POST',
+                url: "./controller/item_controller.php",
+                data: (dataSendUpdate),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+
+            updateItemsFromDatabase.success(function(response) {
+                // toastr.success('Update Successful');
+                getItems();
+            });
+    }
+
 
 }
 

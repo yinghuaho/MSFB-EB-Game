@@ -1,0 +1,26 @@
+    <div ng-repeat="item in itemsMe ">
+        <div class="item-wrapper item-create">
+            <img ng-if="!edit" ng-src="{{item.url}}"/>
+            <div ng-if="edit">
+				<label for="item-img">Image URL</label><input ng-model="item.url" id="item-img" type="text" name="item-img" placeholder="image url">
+            </div>
+            <span ng-if="!edit">{{item.title}}</span>
+            <div ng-if="edit">
+				<label for="item-title">Title</label><input ng-model="item.title " id="item-title" type="text" name="item-title" placeholder="title">
+            </div>
+            <p ng-if="!edit">{{item.description}}</p>
+            <div ng-if="edit">
+				<label for="item-desc">Description</label><textarea ng-model="item.description" id="item-desc" name="item-desc" rows="5" cols="55" placeholder="description"></textarea>
+            </div>
+            <button ng-click="updateItems(item.id, item.url, item.title, item.description)">{{editButtonName}}</button>
+            <button ng-click="deleteItems(item.id)">Delete</button>
+        </div>
+
+    </div>
+
+<!--    <div class="item-create">
+        <label for="item-img">Image URL</label><input ng-model="itemsSend.url" id="item-img" type="text" name="item-img" placeholder="image url">
+        <label for="item-title">Title</label><input ng-model="itemsSend.title " id="item-title" type="text" name="item-title" placeholder="title">
+        <label for="item-desc">Description</label><textarea ng-model="itemsSend.description" id="item-desc" name="item-desc" rows="5" cols="55" placeholder="description"></textarea>
+        <button id="item-submit" ng-click="pushNewItems()">Create Post</button>
+      </div> -->
