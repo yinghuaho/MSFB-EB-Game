@@ -10,7 +10,7 @@ function select_item(){
   
 function insert_item(){
     global $db;
-    $query = "INSERT INTO items (title, url,description, userid) VALUES ('".$_POST['title']."', '".$_POST['description']."', '".$_POST['url']."', '".$_POST['userid']."')";
+    $query = "INSERT INTO items (title, url,description, userid) VALUES ('".$_POST['title']."', '".$_POST['url']."', '".$_POST['description']."', '".$_POST['userid']."')";
     $result = $db->query($query);
     echo json_encode($result->fetchAll());
 }

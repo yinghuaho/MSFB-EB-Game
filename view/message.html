@@ -2,9 +2,9 @@
 	<div class="message-display" scroll-glue>
 		<div ng-repeat="message in messages track by $index">
 			<div class="flex user-message">
-				<div>{{message.username}}    :</div>
+				<div class="message-username">{{message.username}}</div>
+				<div class="time-of-message">({{message.time}}) :</div>
 				<div class="message-from-user">{{message.message}} </div>
-				<div class="time-of-message">at {{message.time}}</div>
 			</div>
 		</div>
 	</div>
