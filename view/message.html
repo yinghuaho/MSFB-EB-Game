@@ -4,7 +4,12 @@
 			<div class="flex user-message">
 				<div class="message-username">{{message.username}}</div>
 				<div class="time-of-message">({{message.time}}) :</div>
-				<div class="message-from-user">{{message.message}} </div>
+				<div ng-if="!messageEdit" class="message-from-user">{{message.message}} </div>
+				<div>
+				<textarea ng-if="messageEdit" ng-model="message.message " id="item-title" type="text" name="item-title" placeholder="title"></textarea> 
+				</div>
+				<button ng-click="edit(message.id,message.message)">{{messageEditButton}}</button>
+				<button ng-click="delete(message.id)">delete</button>
 			</div>
 		</div>
 	</div>
