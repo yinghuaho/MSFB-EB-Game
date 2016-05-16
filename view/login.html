@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>EB Games Chat</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="../css/css/global.css"/>
 </head>
 
@@ -11,8 +12,9 @@
 <div class="login-wrapper">
   <input id="username" type="text" placeholder="Username"/>
   <input id="password" type="password" placeholder="Password"/>
-  <button id="login">Login</button>
-  <a class="btn-login-signup" href="signup.html">Sign Up</a>
+  <button id="login"><span class="fa fa-sign-in"></span> Login</button>
+  <a class="btn-login-signup" href="signup.html"><span class="fa fa-user-plus"></span> Sign Up</a>
+  <a class="btn-login-view" href="index.html"><span class="fa fa-eye"></span> View as Visitor</a>
 </div>
 <!-- ----------------- Main Content End ----------------- -->
 
@@ -36,7 +38,6 @@ $(document).ready(function(){
         password: $("#password").val()
       },
       success: function(resp){
-        alert("Success! User is now logged in!");
         console.log(resp);
 
         localStorage.setItem("id", resp[0].id);

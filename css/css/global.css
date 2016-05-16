@@ -31,6 +31,29 @@ body {
     color: #3885CC;
     border: 2px solid #3885CC; }
 
+.btn-login-view {
+  font-family: 'Raleway', sans-serif;
+  background-color: #ff8439;
+  color: #fff;
+  font-size: 1em;
+  text-decoration: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #ff8439;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 320px;
+  padding: 15px;
+  cursor: pointer;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease; }
+  .btn-login-view:hover {
+    background-color: #fff;
+    color: #ff8439;
+    border: 2px solid #ff8439; }
+
 .signup-wrapper > input, .login-wrapper > input {
   font-family: 'Raleway', sans-serif;
   font-size: 1em;

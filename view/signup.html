@@ -15,7 +15,7 @@
   <input id="firstname" type="text" placeholder="First Name"/>
   <input id="lastname" type="text" placeholder="Last Name"/>
   <input id="email" type="text" placeholder="Email"/>
-  <button id="signup">Sign Up</button>
+  <button id="signup"><span class="fa fa-user-plus"></span> Sign Up</button>
   <a class="btn-login-signup" href="login.html"><span class="fa fa-caret-left"></span> Back</a>
 </div>
 <!-- ----------------- Main Content End ----------------- -->
@@ -42,7 +42,6 @@ $(document).ready(function(){
         email: $("#email").val()
       },
       success: function(resp){
-        alert("Thanks for creating an account!");
         document.location = "login.html";
       }
     }); // ajax
